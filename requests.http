@@ -1,0 +1,49 @@
+### 1. Obtener lista de tareas (GET All)
+GET http://localhost:3000/tareas
+
+### 5. Agregar una nueva tarea (POST - Crear)
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "titulo": "Tarea para actualizar",
+    "descripcion": "Esta tarea se actualizará en el punto 6",
+    "pasos": []
+}
+
+### 2. Obtener una tarea por nombre (GET by Title)
+GET http://localhost:3000/tareas/titulo/Configurar Servidor
+
+### 3. Obtener listado tareas pendientes (GET by Status)
+GET http://localhost:3000/tareas/estado/pendiente
+
+### 4. Obtener listado tareas completadas (GET by Status)
+GET http://localhost:3000/tareas/estado/completada
+
+### 6. Actualizar una tarea existente (PUT - Reemplazo Total)
+# Asumiendo que la tarea 1 existe y la tarea creada en el punto 5 tiene ID 4
+PUT http://localhost:3000/tareas/1
+Content-Type: application/json
+
+{
+    "titulo": "Configuración de Servidor TERMINADA",
+    "descripcion": "El servidor fue instalado y verificado.",
+    "estado": "completada",
+    "pasos": ["npm init", "npm install express", "Verificación OK"]
+}
+
+### 7. Actualizar el estado de una tarea (PATCH - Actualización Parcial)
+# Se usa PATCH en la tarea con ID 2 para cambiarla a 'completada'
+PATCH http://localhost:3000/tareas/estado/2
+Content-Type: application/json
+
+{
+    "estado": "completada"
+}
+
+### 8. Eliminar una tarea especifica (DELETE)
+# Elimina la tarea con ID 3
+DELETE http://localhost:3000/tareas/5
+
+
+
